@@ -1,12 +1,26 @@
 @'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
 .venv/
 .venv*/
 venv/
-__pycache__/
-*.py[cod]
+env/
+
+# Environment variables and secrets
 .env
 .env.*
+
+# Test and coverage artifacts
 .pytest_cache/
 .coverage
 htmlcov/
-'@ | Set-Content .gitignore
+
+# IDE and operating system
+.vscode/
+.DS_Store
+Thumbs.db
+'@ | Set-Content -Encoding utf8 .gitignore
