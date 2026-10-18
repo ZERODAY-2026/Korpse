@@ -1,4 +1,4 @@
-# Korpse — Legal Triage Assistant
+# Korpse — Private-legal-triage
 
 **ZeroDay OSS · Hacktoberfest 2026 · Problem Statement 2 (PS2)**
 
