@@ -193,11 +193,9 @@ This is a proposed interface; the actual function must match the implementation 
 ### Step 1: Clone the repository
 
 ```powershell
-git clone <TEAM_REPOSITORY_URL>
+git clone <[TEAM_REPOSITORY_URL](https://github.com/ZERODAY-2026/Korpse.git)>
 cd Korpse
 ```
-
-Replace `<TEAM_REPOSITORY_URL>` with the actual repository URL. If the repository is already cloned, open the existing project folder instead.
 
 ### Step 2: Create a virtual environment
 
