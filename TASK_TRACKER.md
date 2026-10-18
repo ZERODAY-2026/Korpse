@@ -42,7 +42,7 @@ Short check-ins of 5–10 minutes. Everyone attends.
 | Add `requirements.txt` with pinned versions | All | To do | [ ] |
 | `.streamlit/config.toml` with `gatherUsageStats = false` and `server.address = "localhost"` | Ayush | To do | [ ] |
 
-## 4. Siddhesh: UI tasks
+## 4. Siddhesh,Anshuman: UI tasks
 
 | ID | Task | Hour target | Status | Depends on |
 |---|---|---|---|---|
