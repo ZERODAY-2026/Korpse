@@ -27,12 +27,16 @@ URGENCY_LEVELS = ("high", "medium", "low", "unclear")
 DEFAULT_DISCLAIMER = "This is general information, not legal advice."
 
 
+
 def _load_backend():
     """Return the backend module chosen in config.py."""
     if USE_STUB:
         from core import stub_backend
+        print("[KORPSE] Using STUB backend")
         return stub_backend
-    from ai import pipeline  # real AI pipeline (feat/ai-pipeline branch)
+
+    from ai import pipeline
+    print("[KORPSE] Using REAL AI pipeline")
     return pipeline
 
 
@@ -156,6 +160,7 @@ def _check_result(result, file_name: str) -> dict:
         "file_name": _text(result.get("file_name"), file_name),
         "file_type": _text(result.get("file_type"), Path(file_name).suffix.lstrip(".")),
         "evidence_passages": _passages(result.get("evidence_passages")),
+        "full_text": _text(result.get("full_text")),
         # Not part of the pipeline output; the stub adds it. Shown in About.
         "model_name": _text(result.get("model_name")),
     }
