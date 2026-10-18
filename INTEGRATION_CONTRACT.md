@@ -29,7 +29,7 @@ backend.analyze_document()      (Shiven)
       ↓
 safety.review_analysis()        (Ayush)
       ↓
-UI displays results             (Siddhesh)
+UI displays results             (Siddhesh,Anshuman)
 
 
 Asking a question
@@ -40,7 +40,7 @@ backend.answer_question()       (Shiven)
       ↓
 safety.review_answer()          (Ayush)
       ↓
-UI displays answer              (Siddhesh)
+UI displays answer              (Siddhesh,Anshuman)
 ```
 
 The UI **never** shows backend output directly. Everything passes through the safety review first.
