@@ -2,7 +2,7 @@
 
 The app is built with **Python + Streamlit only**. Every guideline below uses Streamlit's built-in components. Follow `CLAUDE.md` at all times, especially the privacy and legal-safety rules.
 
-**Owner:** Siddhesh (`app.py`, `ui/`)
+**Owner:** Siddhesh,Anshuman (`app.py`, `ui/`)
 
 ## 1. Design goals
 
