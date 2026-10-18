@@ -35,9 +35,28 @@ def test_pdf():
     print("PASS: PDF parsing")
 
 
+def test_empty_txt():
+    result = parse_document("samples/empty.txt")
+    assert result["success"] is False, result
+    assert result["error"] == "TXT file is empty."
+    print("PASS: Empty TXT handling")
+
+
+def test_empty_or_image_only_pdf():
+    # An empty PDF can be created in Word or another PDF tool.
+    # This test uses the existing sample PDF only if it has no extractable text.
+    result = parse_document("samples/empty.pdf")
+    assert result["success"] is False, result
+    assert "No extractable text found" in result["error"]
+    print("PASS: Text-free PDF handling")
+
+
+
 if __name__ == "__main__":
     test_txt()
     test_pdf()
+    test_empty_txt()
+    test_empty_or_image_only_pdf()
     test_missing_file()
     test_unsupported_file()
     print("All tests passed!")
