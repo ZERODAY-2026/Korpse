@@ -44,7 +44,7 @@ member's folder unless the user explicitly asks.
 | Folder / file              | Owner     | Purpose                                                        |
 |----------------------------|-----------|----------------------------------------------------------------|
 | `app.py`, `ui/`            | Siddhesh  | Streamlit app, screens and UI components                       |
-| `core/stub_backend.py`     | Siddhesh  | Fake sample data for UI development ONLY (remove before demo)  |
+| `core/stub_backend.py`     | Anshuman  | Fake sample data for UI development ONLY (remove before demo)  |
 | `backend/`                 | Shiven    | Document reading (PDF/text), chunking, Gemma model calls       |
 | `models/` (not committed)  | Shiven    | Local model weights — listed in `.gitignore`                   |
 | `safety/`                  | Ayush     | Legal-safety checks: disclaimers, refusal and escalation rules, prompt-injection protection |
