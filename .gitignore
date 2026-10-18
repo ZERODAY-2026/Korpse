@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Model weights (downloaded locally, never committed)
+models/
+*.gguf
+*.bin
+*.safetensors
+*.task
+*.litertlm
+
+# Private and temporary documents
+uploads/
+temp/
+tmp/
+private_docs/
+
+# Logs
+*.log
+logs/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Streamlit secrets (.streamlit/config.toml stays tracked)
+.streamlit/secrets.toml
