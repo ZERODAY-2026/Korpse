@@ -23,7 +23,7 @@ def render_about() -> None:
     )
 
     st.subheader("Model")
-    st.markdown(f"Model used: **{safe(analysis.model_name or 'TBD')}**")
+    st.markdown(f"Model used: **{safe(analysis.get('model_name') or 'Local AI model (details TBD)')}**")
 
     st.subheader("Limitations")
     st.markdown(

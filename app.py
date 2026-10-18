@@ -3,18 +3,13 @@
 import streamlit as st
 
 from config import USE_STUB
-
-if USE_STUB:
-    from core import stub_backend as backend
-else:
-    # TODO: import the real backend once Shiven confirms its module and
-    # functions in INTEGRATION_CONTRACT.md. Do not guess the import.
-    raise NotImplementedError("The real backend is not connected yet. Set USE_STUB = True in config.py.")
-
+# The backend (stub or real AI pipeline) is chosen in ui/backend_client.py.
 from ui.about import render_about
 from ui.chat import render_chat
+from ui.header import render_header
 from ui.review import render_review
 from ui.sidebar import render_sidebar
+from ui.styles import apply_styles
 from ui.upload import render_upload
 
 
@@ -31,9 +26,14 @@ def init_session_state() -> None:
 
 def main() -> None:
     """Set up the page, sidebar and tabs."""
-    st.set_page_config(page_title="Korpse - Legal Document Helper", layout="wide")
+    st.set_page_config(page_title="KØRPSE - Legal Document Helper", layout="wide")
+    # Hide Streamlit's developer options (Deploy, Rerun, Clear cache) from the
+    # toolbar and menu. Deploying to the cloud would break the on-device rule.
+    st.set_option("client.toolbarMode", "viewer")
     init_session_state()
+    apply_styles()
     render_sidebar()
+    render_header()
 
     if USE_STUB:
         st.caption("🛠️ Development mode - showing sample data")
@@ -42,11 +42,11 @@ def main() -> None:
         ["Upload", "Review", "Ask a Question", "About and Privacy"]
     )
     with upload_tab:
-        render_upload(backend)
+        render_upload()
     with review_tab:
         render_review()
     with chat_tab:
-        render_chat(backend)
+        render_chat()
     with about_tab:
         render_about()
 

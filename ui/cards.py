@@ -1,21 +1,13 @@
-"""Finding cards and small display helpers shared by the UI tabs."""
+"""Small display helpers shared by the UI tabs."""
 
 import re
 
 import streamlit as st
 
-# Risk badges: icon + coloured text label, never colour alone.
-RISK_BADGES = {
-    "high": "⛔ :red[**High risk**]",
-    "medium": "⚠️ :orange[**Medium risk**]",
-    "low": "ℹ️ :green[**Low risk**]",
-    "none": "➖ :gray[**No risk noted**]",
-}
-RISK_ORDER = {"high": 0, "medium": 1, "low": 2, "none": 3}
-
-KIND_LABELS = {
-    "stated": "📄 **Stated in document**",
-    "interpretation": "💭 *Possible interpretation*",
+# Answer kinds: (text, icon, colour). Different icon and colour for each.
+KIND_STYLES = {
+    "stated": ("Stated in document", ":material/description:", "blue"),
+    "interpretation": ("Possible interpretation", ":material/lightbulb:", "violet"),
 }
 
 FLAG_TEXT = {
@@ -38,11 +30,18 @@ def safe(text: str) -> str:
     return _MARKDOWN_SPECIAL.sub(r"\\\1", text)
 
 
+def kind_badge(kind: str) -> None:
+    """Show a small 'Stated in document' or 'Possible interpretation' badge."""
+    if kind in KIND_STYLES:
+        label, icon, color = KIND_STYLES[kind]
+        st.badge(label, icon=icon, color=color)
+
+
 def render_citations(citations) -> None:
     """Show each quote with its page number."""
     for citation in citations:
         page = f"Page {citation.page}" if citation.page is not None else "Text file (no page numbers)"
-        st.caption(page)
+        st.caption(f":material/bookmark: {page}")
         quote = " ".join(citation.quote.split())  # keep the quote on one line
         st.markdown(f"> {safe(quote)}")
 
@@ -50,31 +49,4 @@ def render_citations(citations) -> None:
 def render_flags(flags) -> None:
     """Show warning flags as short plain-language lines."""
     for flag in flags:
-        st.markdown(f"⚠️ {FLAG_TEXT.get(flag, safe(flag))}")
-
-
-def render_finding(finding) -> None:
-    """Draw one finding as a bordered card."""
-    with st.container(border=True):
-        st.markdown(
-            f"{RISK_BADGES.get(finding.risk_level, safe(finding.risk_level))}"
-            f" &nbsp;·&nbsp; {safe(finding.category.capitalize())}"
-        )
-        st.markdown(f"**{safe(finding.title)}**")
-        st.markdown(safe(finding.plain_explanation))
-        st.markdown(
-            f"{KIND_LABELS.get(finding.kind, safe(finding.kind))}"
-            f" &nbsp;·&nbsp; Confidence: {safe(finding.confidence.capitalize())}"
-        )
-
-        if finding.confidence == "low":
-            st.warning("Low confidence: this result may be unreliable. Please check the source passage.")
-        render_flags(finding.flags)
-        if finding.lawyer_note:
-            st.warning(safe(finding.lawyer_note))
-
-        with st.expander("See source passage"):
-            if finding.citations:
-                render_citations(finding.citations)
-            else:
-                st.info("No source passage was found for this finding.")
+        st.markdown(f":orange[:material/flag:] {FLAG_TEXT.get(flag, safe(flag))}")
