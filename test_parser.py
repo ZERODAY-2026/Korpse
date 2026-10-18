@@ -23,9 +23,21 @@ def test_unsupported_file():
     assert result["success"] is False
     print("PASS: Unsupported-file handling")
 
+def test_pdf():
+    result = parse_document("samples/samples.pdf")
+
+    assert result["success"] is True, result
+    assert result["file_type"] == "pdf"
+    assert len(result["pages"]) >= 1
+    assert "Party A" in result["pages"][0]["text"]
+    assert result["pages"][0]["page"] == 1
+
+    print("PASS: PDF parsing")
+
 
 if __name__ == "__main__":
     test_txt()
+    test_pdf()
     test_missing_file()
     test_unsupported_file()
     print("All tests passed!")
