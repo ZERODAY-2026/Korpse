@@ -36,7 +36,7 @@ These are mandatory.
 
 | ID | Requirement | Owner | Done |
 |---|---|---|---|
-| L1 | Upload and read a PDF or plain-text file locally | Siddhesh (upload UI) + Shiven (parsing) | [ ] |
+| L1 | Upload and read a PDF or plain-text file locally | Anshuman (upload UI) + Shiven (parsing) | [ ] |
 | L2 | Extract and understand the document's contents on the device | Shiven | [ ] |
 | L3 | Plain-language summary and explanations of important clauses | Shiven (model) + Siddhesh (display) | [ ] |
 | L4 | Find obligations, rights, deadlines, penalties, termination conditions and concerns | Shiven | [ ] |
