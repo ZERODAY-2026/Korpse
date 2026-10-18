@@ -6,7 +6,7 @@ Follow `CLAUDE.md`, `REQUIREMENTS.md` and `INTEGRATION_CONTRACT.md`.
 
 | Member | Area |
 |---|---|
-| Siddhesh | UI (Python + Streamlit) |
+| Siddhesh and Anshuman | UI (Python + Streamlit) |
 | Shiven | Backend + local Gemma |
 | Ayush | Safety + privacy |
 
