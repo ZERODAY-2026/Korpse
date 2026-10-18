@@ -22,7 +22,15 @@ something is legal, valid or enforceable.**
 - Input formats: PDF and plain text (.txt)
 
 ## 3. Tech stack
-- Python 3.12.10
+- Python version: **3.12.10** (the whole team must use this exact version)
+- Virtual environment: `.venv` in the project root
+  - Always run Python and pip through the virtual environment, never the
+    system Python:
+    - Python: `.venv\Scripts\python`
+    - pip: `.venv\Scripts\python -m pip`
+  - Never install packages globally.
+  - After installing any new package, add it with its exact version to
+    `requirements.txt` (e.g. `streamlit==1.66.0`).
 - Streamlit (user interface)
 - Google Gemma 3n-class model (E2B/E4B) running locally on the device
   - Exact variant, runtime, quantization and calling method are **TBD**
