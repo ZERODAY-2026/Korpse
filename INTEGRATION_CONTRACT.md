@@ -16,7 +16,7 @@ This contract defines how the three parts of the app talk to each other: the **U
 - [ ] Shiven
 - [ ] Ayush
 
-**Rule:** all three members must agree to any change, and every change is recorded in the [Change log](#10-change-log).
+**Rule:** all four members must agree to any change, and every change is recorded in the [Change log](#10-change-log).
 
 ## 2. Flow overview
 
