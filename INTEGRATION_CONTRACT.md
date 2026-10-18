@@ -11,7 +11,7 @@ Follow the rules in `CLAUDE.md` at all times. Everything is Python + Streamlit a
 This contract defines how the three parts of the app talk to each other: the **UI** (Siddhesh), the **backend + Gemma** (Shiven) and **safety + privacy** (Ayush). If we agree on function names, inputs, outputs and errors up front, all three of us can build in parallel. Siddhesh can build screens with sample data, Shiven can build the model pipeline and Ayush can build the safety checks, and the parts will fit together at the end.
 
 **Approval checklist**
-
+-[ ] Anshuman
 - [ ] Siddhesh
 - [ ] Shiven
 - [ ] Ayush
