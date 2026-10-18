@@ -66,14 +66,14 @@ the whole team must review the change.
 ```
 User uploads file
       ↓
-[Siddhesh – UI]  →  sends document  →  [Shiven – backend + Gemma]
+[Siddhesh,Anshuman – UI]  →  sends document  →  [Shiven – backend + Gemma]
                                                ↓
                                         raw findings
                                                ↓
                                       [Ayush – safety check]
                                       adds warnings, blocks legal verdicts
                                                ↓
-[Siddhesh – UI]  ←  shows safe, cited results on screen
+[Siddhesh,Anshuman – UI]  ←  shows safe, cited results on screen
 ```
 
 ## 5. Privacy rules (MOST IMPORTANT — breaking these fails the project)
