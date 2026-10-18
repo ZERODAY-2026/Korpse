@@ -128,12 +128,12 @@ If any code needs network access, stop and ask the user first.
 
 ## 9. Git workflow
 - Each member works on their own branch:
-  - Siddhesh → `ui`
+  - Siddhesh,Anshuman → `ui`
   - Shiven → `backend`
   - Ayush → `safety-privacy`
 - Commit small changes often with clear messages.
 - Merge into `main` only through a pull request.
-- Changes to `core/contract.py` need approval from all three members.
+- Changes to `core/contract.py` need approval from all four members.
 - Pull `main` regularly to stay up to date.
 
 ## 10. Other project files to read
