@@ -2,6 +2,8 @@
 import json
 
 from ai.models import generate_response
+from document_parser import parse_document
+from triage import build_triage_input
 
 
 DISCLAIMER = (
@@ -113,4 +115,39 @@ DOCUMENT TEXT END
         )
 
     result["disclaimer"] = DISCLAIMER
+    return result
+
+def analyze_file(
+    file_path: str,
+    jurisdiction: str = "Unspecified",
+) -> dict:
+    """Parse and analyze a local PDF or TXT file using local Gemma."""
+
+    parsed = parse_document(file_path)
+
+    if not parsed.get("success"):
+        raise ValueError(
+            parsed.get("error", "Could not parse the document.")
+        )
+
+    triage_input = build_triage_input(parsed)
+
+    if not triage_input.get("success"):
+        raise ValueError(
+            triage_input.get("error", "Could not prepare the document.")
+        )
+
+    # Keep page labels in the text sent to the model.
+    document_text = "\n\n".join(triage_input["chunks"])
+
+    result = analyze_document(
+        document_text=document_text,
+        jurisdiction=jurisdiction,
+    )
+
+    # Include parser metadata and keyword-matched evidence.
+    result["file_name"] = triage_input["file_name"]
+    result["file_type"] = triage_input["file_type"]
+    result["evidence_passages"] = triage_input["evidence_passages"]
+
     return result
